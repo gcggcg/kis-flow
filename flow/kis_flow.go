@@ -90,23 +90,39 @@ func (flow *KisFlow) Fork(ctx context.Context) kis.Flow {
 	for _, fp := range flow.Conf.Flows {
 		if _, ok := flow.funcParams[flow.Funcs[fp.FuncName].GetId()]; !ok {
 			// 当前function没有配置Params
-			newFlow.Link(flow.Funcs[fp.FuncName].GetConfig(), nil)
+			_ = newFlow.AppendNewFunction(flow.Funcs[fp.FuncName].GetConfig(), nil)
 		} else {
 			// 当前function有配置Params
-			newFlow.Link(flow.Funcs[fp.FuncName].GetConfig(), fp.Params)
+			_ = newFlow.AppendNewFunction(flow.Funcs[fp.FuncName].GetConfig(), fp.Params)
 		}
 	}
 
-	log.Logger().DebugFX(ctx, "=====>Flow Fork, oldFlow.funcParams = %+v\n", flow.funcParams)
-	log.Logger().DebugFX(ctx, "=====>Flow Fork, newFlow.funcParams = %+v\n", newFlow.GetFuncParamsAllFuncs())
+	log.Logger().DebugX(ctx, "=====>Flow Fork, ", "oldFlow.funcParams", flow.funcParams)
+	log.Logger().DebugX(ctx, "=====>Flow Fork, ", "newFlow.funcParams", newFlow.GetFuncParamsAllFuncs())
 
 	return newFlow
 }
 
-// Link 将Function链接到Flow中
+// Link 将Function链接到Flow中, 同时会将Function的配置参数添加到Flow的配置中
 // fConf: 当前Function策略
 // fParams: 当前Flow携带的Function动态参数
 func (flow *KisFlow) Link(fConf *config.KisFuncConfig, fParams config.FParam) error {
+
+	// Flow 添加Function
+	_ = flow.AppendNewFunction(fConf, fParams)
+
+	// FlowConfig 添加Function
+	flowFuncParam := config.KisFlowFunctionParam{
+		FuncName: fConf.FName,
+		Params:   fParams,
+	}
+	flow.Conf.AppendFunctionConfig(flowFuncParam)
+
+	return nil
+}
+
+// AppendNewFunction 将一个新的Function追加到到Flow中
+func (flow *KisFlow) AppendNewFunction(fConf *config.KisFuncConfig, fParams config.FParam) error {
 	// 创建Function实例
 	f := function.NewKisFunction(flow, fConf)
 
@@ -241,7 +257,7 @@ func (flow *KisFlow) Run(ctx context.Context) error {
 
 		// 得到当前Function要处理与的源数据
 		if inputData, err := flow.getCurData(); err != nil {
-			log.Logger().ErrorFX(ctx, "flow.Run(): getCurData err = %s\n", err.Error())
+			log.Logger().ErrorX(ctx, "flow.Run(): getCurData", "err", err.Error())
 			return err
 		} else {
 			flow.inPut = inputData
@@ -330,7 +346,7 @@ func (flow *KisFlow) GetFuncConfigByName(funcName string) *config.KisFuncConfig 
 	if f, ok := flow.Funcs[funcName]; ok {
 		return f.GetConfig()
 	} else {
-		log.Logger().ErrorF("GetFuncConfigByName(): Function %s not found", funcName)
+		log.Logger().Error("GetFuncConfigByName(): Function not found", "FunctionName", funcName)
 		return nil
 	}
 }

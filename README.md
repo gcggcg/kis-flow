@@ -1,12 +1,16 @@
-# kis-flow
+# <img width="250px" src="https://github.com/aceld/kis-flow/assets/7778936/8729d750-897c-4ba3-98b4-c346188d034e" />
+
+[![License](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE)
+[![Discord](https://img.shields.io/badge/KisFlow-Discord-blue.svg)](https://discord.gg/xQ8Xxfyfcz)
+[![KisFlow-tutorial](https://img.shields.io/badge/KisFlowTutorial-YuQue-red.svg)](https://www.yuque.com/aceld/kis-flow) 
+[![KisFlow-Doc](https://img.shields.io/badge/KisFlow-Doc-green.svg)](https://www.yuque.com/aceld/kis-flow-doc)
+
 
 #### KisFlow(Keep It Simple Flowing)
 
 基于Golang的流式计算框架. 为保持简单的流动，强调在进行各种活动或工作时保持简洁、清晰、流畅的过程。
 
 
-
----
 
 ## KisFlow源代码
 
@@ -20,16 +24,20 @@ Git: https://gitee.com/Aceld/kis-flow
 
 https://www.yuque.com/aceld/kis-flow-doc
 
-## KisFlow框架开发教程：《基于Golang的流式计算框架实战教程》
+## KisFlow框架开发教程
+
+*《基于Golang的流式计算框架实战教程》*
+
+<img width="350px" src="https://github.com/aceld/kis-flow/assets/7778936/173e3f5a-eac1-4b32-aa09-ef65053a5ef2" />
 
 https://www.yuque.com/aceld/hsa94o
 
 ## KisFlow系统定位
 
 KisFlow为业务上游计算层，上层接数仓/其他业务方ODS层、下游接本业务存储数据中心。<br />
-![yuque_diagram (2)](https://github.com/aceld/kis-flow/assets/7778936/b9e1957a-2d11-45d9-84c1-e92c9ac833cc)
 
-<a name="elhiR"></a>
+<img width="700px" src="https://github.com/aceld/kis-flow/assets/7778936/b9e1957a-2d11-45d9-84c1-e92c9ac833cc" />
+
 
 ## KisFlow整体架构图
 
@@ -59,7 +67,7 @@ https://github.com/aceld/kis-flow-usage
 
 #### 《KisFlow开发者文档》
 
-中文：https://www.yuque.com/aceld/kis-flow-doc
+https://www.yuque.com/aceld/kis-flow-doc
 
 #### 安装KisFlow
 
@@ -457,5 +465,5 @@ Thanks to all the developers who contributed to KisFlow!
 | <img src="https://user-images.githubusercontent.com/7778936/236775008-6bd488e3-249a-4d43-8885-7e3889e11e2d.png" width = "100" height = "100" alt="" align=center />  | https://discord.gg/xQ8Xxfyfcz                                                                                                                                                                            | 
 | <img src="https://user-images.githubusercontent.com/7778936/236775137-5381f8a6-f534-49c4-8628-e52bf245c3bc.jpeg" width = "100" height = "100" alt="" align=center /> | 加微信: `ace_ld`  或扫二维码，备注`flow`即可。</br><img src="https://user-images.githubusercontent.com/7778936/236781258-2f0371bd-5797-49e8-a74c-680e9f15843d.png" width = "150" height = "150" alt="" align=center /> |
 | <img src="https://user-images.githubusercontent.com/7778936/236778547-9cdadfb6-0f62-48ac-851a-b940389038d0.jpeg" width = "100" height = "100" alt="" align=center /> | <img src="https://s1.ax1x.com/2020/07/07/UFyUdx.th.jpg" height = "150"  alt="" align=center /> **WeChat Public Account**                                                                                 |
-| <img src="https://user-images.githubusercontent.com/7778936/236779000-70f16c8f-0eec-4b5f-9faa-e1d5229a43e0.png" width = "100" height = "100" alt="" align=center />  | <img src="https://s1.ax1x.com/2020/07/07/UF6Y9S.th.png" width = "150" height = "150" alt="" align=center /> **QQ Group**                                                                                 |
+| <img src="https://user-images.githubusercontent.com/7778936/236779000-70f16c8f-0eec-4b5f-9faa-e1d5229a43e0.png" width = "100" height = "100" alt="" align=center />  | <img src="https://github.com/aceld/zinx/assets/7778936/461b409f-6337-48a8-826b-a7a746aaee31" width = "150" height = "150" alt="" align=center /> **QQ Group**                                                                                 |
 
